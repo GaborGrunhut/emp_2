@@ -35,6 +35,36 @@
       "city": "Békéscsaba",
       "salary": 279,
       "id": 7
+    },
+    {
+      "name": "Erős Pista",
+      "city": "Balatonföldvár",
+      "salary": 398,
+      "id": 8
+    },
+    {
+      "name": "Csati Ilona",
+      "city": "Szeged",
+      "salary": "323",
+      "id": 9
+    },
+    {
+      "name": "Végh Béla",
+      "city": "Komló",
+      "salary": "289",
+      "id": 10
+    },
+    {
+      "name": "Jónás Ferenc",
+      "city": "Kiskőrös",
+      "salary": "401",
+      "id": 12
+    },
+    {
+      "name": "Nagy Benő",
+      "city": "Szigetvár",
+      "salary": "344",
+      "id": 13
     }
   ]
 }

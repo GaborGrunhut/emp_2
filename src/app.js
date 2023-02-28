@@ -1,3 +1,8 @@
+const dolgozoTorzs = document.querySelector("#dolgozoTorzs");
+const nameInput = document.querySelector('#nameInput');
+const cityInput = document.querySelector('#cityInput');
+const salaryInput = document.querySelector('#salaryInput');
+const addButtonSave = document.querySelector('#addButtonSave');
 
 const host = 'http://localhost:3000/';
 const endpoint = 'employees';
@@ -10,9 +15,6 @@ fetch(url)
     loadEmployees(result);
 })
 .catch( (err) => console.log(err));
-
-
-const dolgozoTorzs = document.querySelector("#dolgozoTorzs");
 
 function loadEmployees(dolgozoLista) {
     dolgozoLista.forEach((dolgozo) => {
@@ -33,5 +35,37 @@ function loadEmployees(dolgozoLista) {
     });
 }
 
+addButtonSave.addEventListener('click', () => {
+    console.log('Hozzáadás...')
+    addEmployee();
+    clearInputElements();
+});
 
 
+function addEmployee() {
+    let name = nameInput.value;
+    let city = cityInput.value;
+    let salary = salaryInput.value;
+// fetch() utasítás -> post metódus
+    fetch(url, {
+        method: 'POST',
+        body: JSON.stringify({
+            "name": name,
+            "city": city,
+            "salary": salary 
+        }),
+        headers: {
+            "Content-Type": "application/json" 
+        }
+    })
+    .then( response => response.json())
+    .then(result => console.log(result))
+    .catch(error => console.log(error))
+    ;
+}
+
+function clearInputElements() {
+    nameInput.value = '';
+    cityInput.value = '';
+    salaryInput.value = '';
+}
